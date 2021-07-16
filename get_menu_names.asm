@@ -1,16 +1,5 @@
 get_6_names: ;uses r8 - start from
 pushai
-	mov r3, [total_files_in_dir]
-	cmp r3, 6
-	jle .end_fixing
-	add r8, 6
-	cmp r3, r8
-	jge .end_fixing
-	sub r3, r8
-	add r8, r3
-.end_fixing:
-	sub r8, 6
-	mov [new_offset], r8
 	mov r0, [cur_dir]
 	xor r1, r1
 	mov r3, r1
@@ -41,27 +30,25 @@ pushai
 .ndir:
 	sub r3, 1
 	mov [r3+current_table], r6
-
-	add r3, 4
-	add r2, 8
-	movw r6, [r2]
+	movw r6, [r2+8]
 	shl r6, 16
-	add r2, 6
-	movw r7, [r2]
+	movw r7, [r2+14]
 	add r6, r7
-	mov [r3+current_table], r6
+	cmp r6, r0
+	je .remove_self
+	mov [r3+current_table+4], r6
 	
-	add r3, 4
+	add r3, 8
+	cmp r3, 114
+	je .total_end
 	jmp .end
+.remove_self:
+	sub r3, 11
 .skip:
 	sub r8, 1
 .end:
 	add r1, 32
 	jmp .main_lp
 .total_end:
-
 popai
-mov r8, [new_offset]
 ret
-new_offset:
-dd 0
