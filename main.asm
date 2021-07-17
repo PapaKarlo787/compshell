@@ -6,9 +6,8 @@ main:
 	call get_total_files
 .main:
 	call get_6_names
+	call print_names
 	.lpp:
-		call print_names
-	.lop:
 		call reverse_line
 	.lp:
 		gkey
@@ -86,7 +85,10 @@ xor r1, r1
 	loop .lp
 	jmp .start
 .ret:
+cmp r1, r2
+je .ret_er
 call 0x80000000
+.ret_er:
 popai
 ret
 current_table:

@@ -42,7 +42,10 @@ pushai
 	cmp r3, 114
 	je .total_end
 	jmp .end
-.remove_self:
+.remove_self: 
+	mov r10, [total_files_in_dir]
+	sub r10, 1
+	mov [total_files_in_dir], r10
 	sub r3, 11
 .skip:
 	sub r8, 1

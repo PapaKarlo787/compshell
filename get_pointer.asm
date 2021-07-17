@@ -6,8 +6,9 @@ push r4
 push r3
 push r1
 push r0
+cmp r0, 0
+je .zero
 mov r4, [cluster_size]
-
 .lp:
 push r0
 mov r3, [first_fat]
@@ -24,6 +25,7 @@ jge .lp
 .ext:
 cmp r4, r1
 jg .ok
+.zero:
 xor r2, r2
 jmp .ret
 .ok:

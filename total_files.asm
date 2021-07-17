@@ -2,7 +2,7 @@ get_total_files:
 pushai
 	mov r0, [cur_dir]
 	xor r1, r1
-	mov r3, 0xffffffff
+	mov r3, r1
 .lp:
 	call get_poi_to_data
 	cmp r2, 0
