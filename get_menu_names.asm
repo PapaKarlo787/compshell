@@ -47,6 +47,7 @@ pushai
 	sub r10, 1
 	mov [total_files_in_dir], r10
 	sub r3, 11
+;	jmp .end
 .skip:
 	sub r8, 1
 .end:

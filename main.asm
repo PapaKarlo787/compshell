@@ -75,8 +75,8 @@ xor r1, r1
 	call get_poi_to_data
 	cmp r2, 0
 	je .ret
-	mov r14, cluster_size
-	shr r14, 4
+	mov r14, [cluster_size]
+	shr r14, 2
 .lp:
 	mov r3, [r2]
 	mov [0x80000000+r1], r3

@@ -19,9 +19,10 @@ mov r0, [r3]
 pop r3
 cmp r0, 0x0ffffff7
 jge .ext
+cmp r1, r4
+jl .ext
 sub r1, r4
-
-jge .lp
+jmp .lp
 .ext:
 cmp r4, r1
 jg .ok
