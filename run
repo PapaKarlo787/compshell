@@ -1,8 +1,8 @@
 #!/bin/bash
 mkdir q 2> /dev/null
 ls memory || dd if=/dev/zero of=memory bs=2048 count=1048576
-#python3 ../CompAsm/mcasm.py ../OzComp/games/dino_chrome.asm DINO.EXE
-#python3 ../CompAsm/mcasm.py ../OzComp/games/snake.asm SNAKE.EXE
+python3 ../CompAsm/mcasm.py ../OzComp/games/dino_chrome.asm ./exe/DINO.EXE
+python3 ../CompAsm/mcasm.py ../OzComp/games/snake.asm ./exe/SNAKE.EXE
 g++ -c ~/OzComp/OzEmu/main.cpp && g++ main.o -lsfml-graphics -lsfml-window -lsfml-system -lncurses -lSDL
 mkfs.fat -R 3 memory
 sudo mount memory q
