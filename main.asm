@@ -1,8 +1,8 @@
 start_main:
-	cls
-	xor r0, r0 ; pointer to line
-	mov r8, r0
+	xor r3, r3 ; pointer to line
+	mov r8, r3
 main:
+	cls
 	call get_total_files
 .main:
 	call get_6_names
@@ -15,43 +15,45 @@ main:
 		je .up
 		cmp r15, 66
 		je .down
+		cmp r15, 127
+		je .del
 		cmp r15, 10
 		jne .lp
-	mul r0, 19
-	movb r1, [r0+current_table+12]
-	mov r0, [r0+current_table+15]
+	mul r3, 19
+	movb r1, [r3+current_table+12]
+	mov r2, [r3+current_table+15]
+	call get_cluster
 	cmp r1, 0x44
 	jne .file
-	cmp r0, 0
-	jne .write
+	test r0
+	jne .set_dir
 	mov r0, 2
-.write:
+.set_dir:
 	mov [cur_dir], r0
 	jmp start_main
 .file:
 	call try_execute
-	div r0, 19
 	jmp start_main
 .up:
-	cmp r0, 0
+	test r3
 	je .up_
 	call reverse_line
-	sub r0, 1
+	sub r3, 1
 	jmp .lpp
 .up_:
-	cmp r8, 0
+	test r8
 	je .lp
 	sub r8, 1
 	jmp .ret
 .down:
 	mov r7, [total_files_in_dir]
 	sub r7, 1
-	cmp r0, 5
+	cmp r3, 5
 	je .down_
-	cmp r0, r7
+	cmp r3, r7
 	je .lp
 	call reverse_line
-	add r0, 1
+	add r3, 1
 	jmp .lpp
 .down_:
 	mov r9, r8
@@ -63,11 +65,19 @@ main:
 	call reverse_line
 	jmp .main
 
-include "get_menu_names.asm"
-include "total_files.asm"
-include "view.asm"
+.del:
+	mul r3, 19
+	mov r2, [r3+current_table+15]
+	call rem_rec
+	jmp start_main
+
+
+include "view/get_menu_names.asm"
+include "view/total_files.asm"
+include "view/view.asm"
 include "get_pointer.asm" ; uses r0-r2
-include "try_execute.asm"
+include "view/try_execute.asm"
+include "del_cre/rem_dir.asm"
 
 current_table:
 times db 0 114

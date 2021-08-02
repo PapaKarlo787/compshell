@@ -6,7 +6,7 @@ push r4
 push r3
 push r1
 push r0
-cmp r0, 0
+test r0
 je .zero
 mov r4, [cluster_size]
 .lp:

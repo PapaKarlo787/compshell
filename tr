@@ -1,2 +1,0 @@
-python3 ../CompAsm/mcasm.py ~/qwe.asm memory 0
-./a.out

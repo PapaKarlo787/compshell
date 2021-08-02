@@ -3,7 +3,7 @@ pushai
 xor r1, r1
 .start:
 	call get_poi_to_data
-	cmp r2, 0
+	test r2
 	je .ret
 	mov r14, [cluster_size]
 	shr r14, 2
