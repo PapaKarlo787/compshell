@@ -15,9 +15,9 @@ main:
 		je .up
 		cmp r15, 80
 		je .down
-		cmp r15, 127
+		cmp r15, 83
 		je .del
-		cmp r15, 10
+		cmp r15, 28
 		jne .lp
 	mul r3, 19
 	movb r1, [r3+current_table+12]
