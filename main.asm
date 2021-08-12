@@ -11,9 +11,9 @@ main:
 		call reverse_line
 	.lp:
 		gkey
-		cmp r15, 65
+		cmp r15, 72
 		je .up
-		cmp r15, 66
+		cmp r15, 80
 		je .down
 		cmp r15, 127
 		je .del
