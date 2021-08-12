@@ -9,7 +9,7 @@ xor r1, r1
 	shr r14, 2
 .lp:
 	mov r3, [r2]
-	mov [0x80000000+r1], r3
+	mov [0x40000000+r1], r3
 	add r1, 4
 	add r2, 4
 	loop .lp
@@ -17,7 +17,7 @@ xor r1, r1
 .ret:
 cmp r1, r2
 je .ret_er
-call 0x80000000
+call 0x40000000
 .ret_er:
 popai
 ret
