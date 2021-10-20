@@ -11,13 +11,13 @@ main:
 		call reverse_line
 	.lp:
 		gkey
-		cmp r15, 117
+		cmp r15, 103
 		je .up
-		cmp r15, 114
+		cmp r15, 108
 		je .down
 		cmp r15, 115
 		je .del
-		cmp r15, 90
+		cmp r15, 57
 		jne .lp
 	mul r3, 19
 	movb r1, [r3+current_table+12]
