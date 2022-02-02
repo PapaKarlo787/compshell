@@ -1,8 +1,8 @@
 #!/bin/bash
 mkdir q exe 2> /dev/null
 ls memory || dd if=/dev/zero of=memory bs=1024 count=1048576
-python3 ../compasm/mcasm.py ../ozcomp/games/dino_chrome.asm ./exe/DINO.EXE
-python3 ../compasm/mcasm.py ../ozcomp/games/snake.asm ./exe/SNAKE.EXE
+python3 ../compasm/mcasm.py games/dino_chrome.asm ./exe/DINO.EXE
+python3 ../compasm/mcasm.py games/snake.asm ./exe/SNAKE.EXE
 gcc -c ../ozcomp/OzEmu/libs/kbd.c; g++ -o a.out ../ozcomp/OzEmu/main.cpp kbd.o -lc -lncurses -lpthread
 mkfs.fat -R 3 memory
 sudo mount memory q
@@ -22,4 +22,4 @@ python3 ../compasm/mcasm.py shell.asm mem 62
 python3 collector.py mem memory 
 rm *.o 2> /dev/null
 mkfifo pipe
-aplay -q -f cd < pipe & ./a.out
+#aplay -q -f cd < pipe & ./a.out
