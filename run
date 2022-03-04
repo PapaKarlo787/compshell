@@ -24,5 +24,5 @@ sudo umount q
 python3 ../compasm/mcasm.py shell.asm mem 62 
 python3 collector.py mem memory 
 rm *.o 2> /dev/null
-mkfifo pipe
+sudo stty -F /dev/ttyUSB0 9600
 #aplay -q -f cd < pipe & ./a.out
