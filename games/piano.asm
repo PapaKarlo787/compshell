@@ -1,9 +1,18 @@
-np:
+	xor r0, r0
+start:
+	gkey
+	je start
+	and r15, 128
+	jne np
+	test r0
+	jne start
 	play mus
-	delay 1000
-	cls
+	mov r0, 1
+	jmp start
+np:
 	nplay
-	ret
+	xor r0, r0
+	jmp start
 mus:
 dd 1
 dw 1000, 0

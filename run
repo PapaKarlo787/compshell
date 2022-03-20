@@ -6,7 +6,8 @@ do
 	name=`echo $e | cut -f1 -d'.'`
 	python3 ../compasm/mcasm.py games/$e ./exe/$name.EXE
 done
-gcc -c ../ozcomp/OzEmu/libs/kbd.c; g++ -o a.out ../ozcomp/OzEmu/main.cpp kbd.o -lc -lncurses -lpthread
+gcc -c ../ozcomp/OzEmu/libs/kbd.c
+g++ -o a.out ../ozcomp/OzEmu/main.cpp ../ozcomp/OzEmu/libs/beeper.cpp kbd.o -lc -lncurses -lpthread -lSDL2
 mkfs.fat -R 3 memory
 sudo mount memory q
 sudo mkdir q/dir.COM
@@ -24,5 +25,3 @@ sudo umount q
 python3 ../compasm/mcasm.py shell.asm mem 62 
 python3 collector.py mem memory 
 rm *.o 2> /dev/null
-sudo stty -F /dev/ttyUSB0 9600
-#aplay -q -f cd < pipe & ./a.out
