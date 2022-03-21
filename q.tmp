@@ -1,0 +1,2 @@
+hobbit    5664  0.0  0.0  21544  1008 tty4     S    22:09   0:00 grep --color=auto a.out
+hobbit    5665  0.0  0.0 788880  7564 tty4     Sl+  22:09   0:00 ./a.out
