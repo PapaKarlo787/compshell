@@ -38,7 +38,7 @@ mus_lp:
 	add r0, 1
 	loop .lp
 
-	cmp r15, 6
+	cmp r15, 8
 	jg mus_lp
 	
 set_octave:
