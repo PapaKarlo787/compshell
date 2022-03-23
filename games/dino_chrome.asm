@@ -51,7 +51,10 @@ cmp r2, 0
 je draw_cact
 bmp 3, r0, dino
 draw_cact:
+test r2
+jne .nd
 delay 50
+.nd:
 bmp r1, 32, cact
 ret
 lp:
