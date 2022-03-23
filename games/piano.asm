@@ -75,8 +75,7 @@ update_melody:
 	sub r12, r13
 	test r0
 	jne .ne
-	shl r12, 3
-	div r12, 10
+	shr r12, 1
 .ne:
 	shl r12, 16
 	add r0, r12
