@@ -14,6 +14,8 @@ start:
 	gkey
 	cmp r15, 28 ; enter
 	je play_melody
+	cmp r15, 16 ; Q
+	je return_piano
 	cmp r15, 57 ; space
 	jne .loop
 	cls
@@ -87,6 +89,7 @@ update_melody:
 	mls
 	movw [mus+4], r11
 	play mus
+return_piano:
 	ret
 
 play_melody:
