@@ -9,6 +9,8 @@ start:
 	lprint help_1
 	scur 0, 1
 	lprint help_2
+	scur 0, 2
+	lprint help_3
 
 .loop:
 	gkey
@@ -136,6 +138,8 @@ help_1:
 db "Start - Space", 0
 help_2:
 db "Play - Enter", 0
+help_3:
+db "Exit - Q", 0
 help_3:
 db "Frequency:", 0
 err_1:
