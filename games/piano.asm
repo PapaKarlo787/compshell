@@ -106,7 +106,7 @@ play_melody:
 	movw [mus+4], r1
 	cls
 	scur 0, 2
-	lprint help_3
+	lprint help_4
 	scur 18, 3
 	print r1
 	play mus
@@ -140,7 +140,7 @@ help_2:
 db "Play - Enter", 0
 help_3:
 db "Exit - Q", 0
-help_3:
+help_4:
 db "Frequency:", 0
 err_1:
 db "No melody"
