@@ -4,14 +4,16 @@ mov r0, 2
 mov r1, 40
 mov r2, 0
 play sound
+
 start:
-cmp r13, 0
+gkey
+cmp r15, 75
 je left
-cmp r13, 1
+cmp r15, 72
 je up
-cmp r13, 2
+cmp r15, 77
 je right
-cmp r13, 3
+cmp r15, 80
 je down
 jmp step
 
@@ -76,9 +78,7 @@ rect r3, r4, 1, 1
 scol 1
 mod r1, 8064
 mod r2, 8064
-rnd
-mod r13, 10
-delay 300
+delay 200
 jmp start
 
 heap:
@@ -86,4 +86,5 @@ times dd 0 40
 dd 4
 times dd 0 8044
 sound:
-dd 2, 1700, 1000, 900, 1000
+dd 2
+dw 1700, 1000, 900, 1000
