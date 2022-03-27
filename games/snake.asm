@@ -15,6 +15,8 @@ cmp r15, 77
 je right
 cmp r15, 80
 je down
+cmp r15, 28
+je rt
 jmp step
 
 left:
@@ -81,10 +83,11 @@ mod r2, 8064
 delay 200
 jmp start
 
-heap:
-times dd 0 40
-dd 4
-times dd 0 8044
+rt:
+ret
 sound:
 dd 2
 dw 1700, 1000, 900, 1000
+heap:
+times dd 0 40
+dd 4
