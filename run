@@ -8,7 +8,7 @@ do
 done
 gcc -c ../ozcomp/OzEmu/libs/kbd.c
 g++ -o a.out ../ozcomp/OzEmu/main.cpp ../ozcomp/OzEmu/libs/beeper.cpp kbd.o -lc -lncurses -lpthread -lSDL2
-mkfs.fat -R 3 memory
+mkfs.fat -R 5 memory
 sudo mount memory q
 sudo mkdir q/dir.COM
 sudo mkdir q/dirk.COM
