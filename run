@@ -24,4 +24,5 @@ sudo cp exe/* q/
 sudo umount q
 python3 ../compasm/mcasm.py shell.asm mem 62 
 python3 collector.py mem memory 
+sudo chmod +rwx /dev/input/mice
 rm *.o 2> /dev/null

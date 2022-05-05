@@ -1,4 +1,5 @@
 start_main:
+	cls
 	bmp 0, 0, loading
 	xor r3, r3 ; pointer to line
 	mov r8, r3
