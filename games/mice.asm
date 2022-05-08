@@ -1,9 +1,20 @@
 	xor r2, r2
 	xor r3, r3
+	xor r14, r14
 	cls
+	point r2, r3
 start:
+	gkey
+	cmp r15, 28
+	je exit
 	gmice ; r0 - x; r1 - y; r15 - x_sign, r14 - y_sign
 	je start
+	btest r14, 3
+	jne .cont
+	scol 0
+	point r2, r3
+	scol 1
+.cont:
 	mov r0, r15
 	mov r1, r15
 	mov r14, r15
@@ -43,8 +54,11 @@ spoi:
 	mov r3, 0
 .end:
 	and r14, 1
-	je start
 	point r2, r3
+	jni start
+	print r14
+	delay 3000
+	or r14, 2
 	jmp start
 
 

@@ -5,6 +5,7 @@ mov r2, 0
 call drop_apple
 ;play sound
 
+
 start:
 gkey
 cmp r15, 75
@@ -16,7 +17,7 @@ je right
 cmp r15, 80
 je down
 cmp r15, 28
-je rt
+je rtn
 jmp step
 
 left:
