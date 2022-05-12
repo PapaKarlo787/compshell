@@ -1,12 +1,15 @@
 	xor r2, r2
 	xor r3, r3
 	xor r14, r14
-	cls
-	point r2, r3
+	call load_menu
 start:
 	gkey
 	cmp r15, 28
 	je exit
+	push start
+	cmp r15, 57
+	je load_menu
+	pop r15
 	gmice ; r0 - x; r1 - y; r15 - x_sign, r14 - y_sign
 	je start
 	btest r14, 3
@@ -53,11 +56,13 @@ spoi:
 	jge .end
 	mov r3, 0
 .end:
+	cmp r2, 16
+	jge .nxor
+	xor r14, r14
+.nxor:
 	and r14, 1
 	point r2, r3
 	jni start
-	print r14
-	delay 3000
 	or r14, 2
 	jmp start
 
@@ -70,4 +75,15 @@ set_sign:
 plus:
 	mov r15, 1
 exit:
+	ret
+
+load_menu:
+	cls
+	rect 0, 0, 47, 15
+	line 15, 0, 15, 15
+	line 31, 0, 31, 15
+	rect 7, 7, 8, 8
+	circle 5, 23, 7
+	rect 34, 2, 44, 12
+	point r2, r3
 	ret
