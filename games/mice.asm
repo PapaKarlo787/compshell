@@ -14,9 +14,9 @@ start:
 	je start
 	btest r14, 3
 	jne .cont
-	scol 0
+	scond 0
 	point r2, r3
-	scol 1
+	scond 1
 .cont:
 	mov r0, r15
 	mov r1, r15

@@ -8,9 +8,9 @@ lprint score
 bmp 3, r0, dino
 play sound
 aa:
-scol 0
+scond 0
 call draw_map
-scol 1
+scond 1
 sub r1, 3
 sub r0, r2
 call draw_map
