@@ -3,9 +3,12 @@ pushai
 	mov r0, [cur_dir]
 	xor r1, r1
 	mov r3, r1
+	cmp r0, 2
+	je .lp
+	sub r3, 1
 .lp:
 	call get_poi_to_data
-	cmp r2, 0
+	test r2
 	je .ext
 	add r1, 32
 	movb r4, [r2+11]

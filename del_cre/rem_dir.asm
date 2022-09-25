@@ -8,7 +8,7 @@ pushai
 	mov r3, r0
 	call get_cluster
 	cmp r0, r3
-	je .nxt
+	je .nxt		; dont remove yourself
 	mov r0, r3
 	call rem_rec
 .nxt:

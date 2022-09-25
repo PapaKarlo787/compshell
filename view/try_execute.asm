@@ -3,15 +3,14 @@ pushai
 xor r1, r1
 .start:
 	call get_poi_to_data
-	test r2
 	je .ret
 	mov r14, [cluster_size]
-	shr r14, 2
+	shr r14, 9
 .lp:
-	mov r3, [r2]
-	mov [0x40000000+r1], r3
-	add r1, 4
-	add r2, 4
+	add r1, 0x40000000
+	mcp r1, r2
+	sub r1, 0x40000000 - 512
+	add r2, 512
 	loop .lp
 	jmp .start
 .ret:
