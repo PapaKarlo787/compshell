@@ -2,6 +2,7 @@ start_main:
 	xor r3, r3 ; pointer to line
 	mov r8, r3
 main:
+	cls
 	bmp 0, 0, loading
 	call get_total_files
 .main:
