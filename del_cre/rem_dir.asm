@@ -28,7 +28,7 @@ pushai
 	mov r1, [first_fat]
 	add r1, r0
 	push r1
-	mov r0, [r1]
+	mov r0, [, r1]
 	cmp r0, 0xffffff7
 	jge .rem
 	test r0
@@ -42,7 +42,7 @@ ret
 
 rem_rec:
 pushai
-	movb r3, [r2+11]
+	movb r3, [11, r2]
 	test r3
 	je .rt
 	cmp r3, 15
@@ -56,7 +56,7 @@ pushai
 	cmp r4, r5
 	jne .ok
 	pop r5
-	mov r4, [r2]
+	mov r4, [, r2]
 	add r2, 4
 	loop .check
 	jmp .rt

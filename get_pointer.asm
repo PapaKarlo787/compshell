@@ -13,7 +13,7 @@ mov r15, r6
 mov r5, [first_fat]
 shl r6, 2
 add r5, r6
-mov r6, [r5]
+mov r6, [, r5]
 
 mov r5, r15
 cmp r6, 0x0ffffff7

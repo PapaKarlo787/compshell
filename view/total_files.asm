@@ -11,7 +11,7 @@ pushai
 	test r2
 	je .ext
 	add r1, 32
-	movb r4, [r2+11]
+	movb r4, [11, r2]
 	
 	cmp r4, 15
 	je .lp

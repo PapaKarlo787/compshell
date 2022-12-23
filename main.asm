@@ -22,8 +22,8 @@ main:
 		cmp r15, 28
 		jne .lp
 	mul r3, 19
-	movb r1, [r3+current_table+12]
-	mov r2, [r3+current_table+15]
+	movb r1, [current_table+12, r3]
+	mov r2, [current_table+15, r3]
 	call get_cluster
 	cmp r1, 0x44
 	jne .file
@@ -69,7 +69,7 @@ main:
 
 .del:
 	mul r3, 19
-	mov r2, [r3+current_table+15]
+	mov r2, [current_table+15, r3]
 	call rem_rec
 	jmp start_main
 

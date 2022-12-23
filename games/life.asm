@@ -26,7 +26,7 @@ main_lp:
 	add r4, 1
 	and r4, 31
 	jne .cont_data
-	mov [pic+2+r3], r0
+	mov [pic+2, r3], r0
 	add r3, 4
 
 .cont_data:

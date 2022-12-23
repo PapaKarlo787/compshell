@@ -19,7 +19,7 @@ create_rec:
 	call get_poi_to_data
 	test r2
 	je .new_clus
-	movb r4, [r2+11]
+	movb r4, [11, r2]
 	test r4
 	jne .lp
 	mov [.rec_poi], r2
@@ -35,7 +35,7 @@ create_rec:
 	popai
 
 	
-	mov r4, [r2]
+	mov r4, [, r2]
 	ret
 
 

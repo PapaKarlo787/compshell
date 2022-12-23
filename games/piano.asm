@@ -34,7 +34,7 @@ mus_lp:
 	mov r2, 0x7f
 	and r2, r15
 .lp:
-	movb r1, [note_keys+r0]
+	movb r1, [note_keys, r0]
 	cmp r15, r1
 	je set_note
 	cmp r2, r1
@@ -65,7 +65,7 @@ set_note:
 	jmp mus_lp
 
 select_note: ; r0 - note, r10 - octave; result in r1
-	movb r2, [notes+r0]
+	movb r2, [notes, r0]
 	mov r1, 1
 	shl r1, r10
 	mul r1, r2
@@ -84,7 +84,7 @@ update_melody:
 	shl r12, 16
 	add r0, r12
 	shl r7, 2
-	mov [melody+r7], r0
+	mov [melody, r7], r0
 	shr r7, 2
 	add r7, 1
 	mov [m_size], r7
@@ -101,8 +101,8 @@ play_melody:
 	je .err_exit
 	xor r0, r0
 .lp:
-	movw r1, [melody+r0]
-	movw r2, [melody+2+r0]
+	movw r1, [melody, r0]
+	movw r2, [melody+2, r0]
 	movw [mus+4], r1
 	cls
 	scur 0, 2

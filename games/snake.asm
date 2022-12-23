@@ -40,9 +40,9 @@ store_dir:
 mov r0, r15
 
 step:
-mov r3, [heap+r1]
+mov r3, [heap, r1]
 add r1, 4
-mov r4, [heap+r1]
+mov r4, [heap, r1]
 add r1, 4
 cmp r0, 75
 je draw_left
@@ -67,17 +67,17 @@ add r3, 84
 mod r3, 84
 add r4, 48
 mod r4, 48
-mov [heap+r1], r3
+mov [heap, r1], r3
 add r1, 4
-mov [heap+r1], r4
+mov [heap, r1], r4
 sub r1, 4
 bmp r3, r4, rt
 ji check_apple
 no_apple:
 scond 0
-mov r3, [heap+r2]
+mov r3, [heap, r2]
 add r2, 4
-mov r4, [heap+r2]
+mov r4, [heap, r2]
 add r2, 4
 bmp r3, r4, rt
 scond 1
