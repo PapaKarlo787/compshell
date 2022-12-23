@@ -5,9 +5,9 @@ main:
 	cls
 	bmp 0, 0, loading
 	call get_total_files
+	cls
 .main:
 	call get_6_names
-	cls
 	call print_names
 	.lpp:
 		call reverse_line

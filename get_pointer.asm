@@ -1,43 +1,38 @@
 get_poi_to_data:
 ; r0 - current start cluster
 ; r1 - position in file
-; r2 - pointer to needed byte in memory
-push r4
-push r3
-push r1
-push r0
+; res: r2 - pointer to needed byte in memory
+; brokes r4-r7, r15
 test r0
 je .zero
+mov r7, r1
+mov r6, r0
 mov r4, [cluster_size]
 .lp:
-push r0
-mov r3, [first_fat]
-shl r0, 2
-add r3, r0
-mov r0, [r3]
+mov r15, r6
+mov r5, [first_fat]
+shl r6, 2
+add r5, r6
+mov r6, [r5]
 
-pop r3
-cmp r0, 0x0ffffff7
+mov r5, r15
+cmp r6, 0x0ffffff7
 jge .ext
-cmp r1, r4
+cmp r7, r4
 jl .ext
-sub r1, r4
+sub r7, r4
 jmp .lp
 .ext:
-cmp r4, r1
+cmp r4, r7
 jg .ok
 .zero:
 xor r2, r2
 jmp .ret
 .ok:
-sub r3, 2
-mul r3, r4
+sub r5, 2
+mul r5, r4
 mov r2, [data_area]
-add r2, r3
-add r2, r1
+add r2, r5
+add r2, r7
 .ret:
-pop r0
-pop r1
-pop r3
-pop r4
 ret

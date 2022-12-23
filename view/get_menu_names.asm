@@ -51,10 +51,10 @@ ret
 ;r2 - start of record
 ;r0 - start cluster
 get_cluster:
-	push r7
+	mov r15, r7
 	movw r0, [r2+20]
 	shl r0, 16
 	movw r7, [r2+26]
 	add r0, r7
-	pop r7
+	mov r7, r15
 ret

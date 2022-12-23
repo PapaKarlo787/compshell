@@ -1,8 +1,6 @@
 print_names:
-	push r3
-	push r14
-	mov r3, [total_files_in_dir]
-	test r3
+	mov r15, [total_files_in_dir]
+	test r15
 	je .rt
 	scur 1, 0
 	mov r0, current_table
@@ -17,15 +15,12 @@ print_names:
 	add r0, 19
 	loop .start
 .rt:
-	pop r14
-	pop r3
 	rect 0, 0, 47, 83
 	rect 0, 48, 47, 66
 ret
 
 reverse_line:
-	push r3
 	mul r3, 84
 	rpix r3, 84
-	pop r3
+	div r3, 84
 ret
