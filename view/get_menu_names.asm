@@ -33,9 +33,8 @@ pushai
 .dir:
 	mov r6, 0x204420
 .ndir:
-	sub r9, 1
-	mov [current_table, r9], r6
-	add r9, 8
+	mov [current_table-1, r9], r6
+	add r9, 7
 	cmp r9, 114
 	je .total_end
 	jmp .end
