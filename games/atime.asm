@@ -12,10 +12,15 @@ lps:
 	loop lps
 	
 	gtm r0
+	add r0, 18000
 	call printdate
 	lprint num+2
 start:
 	gtm r0
+	mod r0, 86400
+	je sstart
+	gtm r0
+	add r0, 18000
 	mov r1, r0
 	mov r2, r0
 	mov r3, r0
@@ -24,7 +29,6 @@ start:
 	mod r2, 60
 	div r3, 3600
 	mod r3, 24
-	je sstart
 
 	scur 18, 2
 	mov r4, r3
