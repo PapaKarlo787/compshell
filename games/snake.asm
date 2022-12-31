@@ -74,13 +74,13 @@ sub r1, 4
 bmp r3, r4, rt
 ji check_apple
 no_apple:
-scond 0
+rcond 0
 mov r3, [heap, r2]
 add r2, 4
 mov r4, [heap, r2]
 add r2, 4
 bmp r3, r4, rt
-scond 1
+scond 0
 yes_apple:
 mod r1, 8064
 mod r2, 8064

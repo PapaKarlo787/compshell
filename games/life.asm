@@ -59,9 +59,9 @@ check_cell:
 	mod r10, 48
 	point r9, r10
 	ji .nei
-	scond 0
+	rcond 0
 	point r9, r10
-	scond 1
+	scond 0
 	jmp .n_nei
 .nei:
 	add r11, 1
@@ -72,9 +72,9 @@ check_cell:
 	sub r11, 1
 	point r1, r2
 	ji .alive
-	scond 0
+	rcond 0
 	point r1, r2
-	scond 1
+	scond 0
 	add r11, 1
 	xor r12, r12
 .alive:
