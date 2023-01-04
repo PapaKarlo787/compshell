@@ -1,4 +1,5 @@
 sstart:
+	delay 3000
 	play melody
 	cls
 	mov r14, 7
