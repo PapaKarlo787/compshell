@@ -1,3 +1,4 @@
+	rev
 start_main:
 	xor r3, r3 ; pointer to line
 	mov r8, r3

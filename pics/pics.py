@@ -21,7 +21,7 @@ with open(fn, "rb") as f:
 	for i in range(y-1, -1, -1):
 		datalines[i] = f.read(bytes_per_line)
 
-data_res = [x, y]
+data_res = [x, (y>>3) + (1 if y & 7 else 0)]
 yy = 0
 while yy < y:
 	for i in range(x):
