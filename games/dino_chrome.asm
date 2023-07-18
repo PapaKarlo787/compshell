@@ -1,3 +1,4 @@
+s:
 cls
 mov r0, 28
 mov r1, 84
@@ -61,6 +62,14 @@ ret
 lp:
 nplay
 delay 1000
+scur 0, 2
+lprint restart
+lp_end:
+gkey
+cmp r15, 0x15
+je s
+cmp r15, 0x31
+jne lp_end
 ret
 dino:
 db 20,3
@@ -71,6 +80,8 @@ cact:
 db 12,2
 db 224,240,224,0,254,255,255,254,112,124,62,28
 db 1,3,7,7,255,255,255,255,0,0,0,0
+restart:
+db "RESTART? [Y/N]",0
 score:
 db "Score: ",0
 sound:
