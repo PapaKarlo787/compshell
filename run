@@ -2,15 +2,16 @@
 mkdir q exe 2> /dev/null
 ls memory || dd if=/dev/zero of=memory bs=1024 count=1048576
 sudo apt install ncurses-dev libsdl2-dev libsdl1.2-dev 2> /dev/null
+echo "CP-1255 -> Guess -> Let select -> 8x8"
+read -p "Press enter to continue"
 sudo dpkg-reconfigure console-setup
-#CP-1255 -> Guess -> Let select -> 8x8
 for e in `ls games/`
 do
 	name=`echo $e | cut -f1 -d'.'`
 	python3 ../compasm/mcasm.py games/$e ./exe/$name.EXE
 done
 gcc -c ../ozcomp/OzEmu/libs/kbd.c
-g++ -o a.out ../ozcomp/OzEmu/main.cpp ../ozcomp/OzEmu/libs/beeper.cpp kbd.o -lc -lncurses -lpthread -lSDL2
+g++ -O3 -o a.out ../ozcomp/OzEmu/main.cpp ../ozcomp/OzEmu/libs/beeper.cpp kbd.o -lc -lncurses -lpthread -lSDL2
 mkfs.fat -R 5 memory
 sudo mount memory q
 sudo cp exe/* q/
